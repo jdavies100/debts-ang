@@ -1,0 +1,18 @@
+<div class="card" *ngIf="selectedPerson && selectedPerson.debts">
+  <div class="card-body">
+    <h1 class="card-title">
+      {{selectedPerson.name}}
+    </h1>
+    <div class="card-text">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let debt of selectedPerson.debts">
+          <p>Amount: <span
+            [style.color]="debt.amount > 0 ? 'red':'green'">{{debt.amount | currency:'GBP':'symbol' }}</span></p>
+          <p *ngIf="debt.note">Note: {{debt.note}}</p>
+          <p>Dat: {{debt.timestamp | date}}</p>
+        </li>
+      </ul>
+      <h2>Total: {{calculateTotal(selectedPerson.debts) | currency:'GBP':'symbol'}}</h2>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let person of people | async"
+        [class.selected]="this.person === selectedPerson"
+        (click)="selectPerson(person)">
+      <h3>{{person.name}}</h3>
+    </li>
+  </ul>
+</div>

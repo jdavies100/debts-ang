@@ -1,0 +1,11 @@
+<div class="container">
+  <app-person-list
+    [people]="people"
+    [selectedPerson]="selectedPerson"
+    (personSelected)="selectedPerson = $event"
+  ></app-person-list>
+
+  <app-debt-view
+    [selectedPerson]="selectedPerson"
+  ></app-debt-view>
+</div>
